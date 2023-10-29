@@ -1,0 +1,35 @@
+---
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+
+  - name: Install Java
+    apt:
+      name: openjdk-11-jdk
+      state: present
+
+  - name: Enable and Start ElasticSearch service
+    service:
+      name: elasticsearch
+      enabled: yes
+
+  - name: Start Elasticsearch service
+    service:
+      name: elasticsearch
+      state: started
+
+  - name: Enable Kibana
+    service:
+      name: kibana
+      enabled: yes
+
+  - name: Start Kibana
+    service:
+      name: kibana
+      state: started
+
+  - name: Enable and start Logstash service
+    service:
+      name: logstash
+      enabled: yes
+      state: started
